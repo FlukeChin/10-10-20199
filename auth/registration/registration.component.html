@@ -1,0 +1,74 @@
+<div class="row mt-4">
+    <div class="col-12">
+        <a routerLink="/expert" href="#">กลับ</a>
+      <h3>สร้างบัญชีผู้เชี่ยวชาญ</h3>
+    </div>
+  
+    <div class="col-12">
+      <div class="row" *ngIf="authError">
+        <div class="col-12 alert alert-danger">
+          {{ authError?.message }}
+        </div>
+      </div>
+      <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <label for="firstName">First name</label>
+            <input ngModel #firstname="ngModel" name="firstName" type="text" class="form-control" id="firstName">
+          </div>
+          <div class="col-md-6 mb-2">
+            <label for="lastName">Last name</label>
+            <input ngModel #lastname="ngModel" name="lastName" type="text" class="form-control" id="lastName" value="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-2">
+            <label for="email">Email</label>
+            <input ngModel #email="ngModel" name="email" type="email" class="form-control">
+          </div>
+        </div>
+        <div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label for="password">Password</label>
+              <input ngModel #password="ngModel" name="password" type="password" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label>Confirm Password</label>
+              <input name="password" type="password" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control" id="phone"placeholder="+66" ngModel #phone="ngModel" name="phone">
+            </div>
+            
+            <div class="form-group col-md-3">
+              <label for="limitfish">จำนวนปลากัดสูงสุดที่รับวิเคราะห์</label>
+              <select id="limitfish" class="form-control"  ngModel #limitfish="ngModel" name="limitfish">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

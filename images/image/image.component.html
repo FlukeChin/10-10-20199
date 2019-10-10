@@ -1,0 +1,46 @@
+<div class="card" style="widows:80rem">
+    <div class="card-body">
+      <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+        <div class="text-center">
+          <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
+        </div>
+        <br>
+        <div class="form-group">
+          <label>เพิ่มรูปภาพกิจกรรม</label>
+          <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imageUrl"
+            (change)="showPreview($event)">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.imageUrl.errors?.required">ไม่ได้เพิ่มรูปภาพกิจกรรม
+          </div>
+        </div>
+        <br>
+        <label>ชื่อหัวข้อที่จัดแข่ง</label>
+        <div class="form-group">
+          <input class="form-control" formControlName="Name" placeholder="ระบุชื่อหัวข้อที่จัดแข่ง">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.Name.errors?.required">ไม่ได้ระบุชื่อหัวข้อที่จัดแข่ง
+          </div>
+        </div>
+        <br>
+        <label>วันที่และเวลา</label>
+        <div class="form-group">
+          <input class="form-control" formControlName="Date" placeholder="ระบุวันที่และเวลา">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.Date.errors?.required">ไม่ได้ระบุชื่อหัวข้อที่จัดแข่ง
+          </div>
+        </div>
+        <br>
+        <label>ลายละเอียด</label>
+        <div class="form-group">
+          <input class="form-control" formControlName="Description" placeholder="ระบุลายละเอียด">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.Description.errors?.required">ไม่ได้ระบุรายละเอียด
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <a routerLink="/list" class="btn btn-primary btn-block float-right">Go To Gallery</a>
+          </div>
+          <div class="form-group col-md-6">
+            <button type="submit" class="btn btn-success btn-block float-right">เพิ่มกิจกรรม</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
